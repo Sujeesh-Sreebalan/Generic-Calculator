@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class JobScheduling {
-/*		Calculating the Completion Time for each process and storing it*/
+	
+/*	Calculating the Completion Time for each process and storing it*/
 	private static ArrayList<Integer> calculateCompletionTime(ArrayList<ArrayList<Integer>> jobSchedule, int process) {	
 		ArrayList<Integer> completionTime = new ArrayList<>();
 		completionTime.add(jobSchedule.get(0).get(0) + jobSchedule.get(0).get(1));
@@ -20,7 +21,7 @@ public class JobScheduling {
 	}
 	
 	
-/*		Calculating the turn around time and storing it */
+/*	Calculating the turn around time and storing it */
 	private static ArrayList<Integer> calculateTurnAroundTime(ArrayList<ArrayList<Integer>> jobSchedule, int process, 
 			ArrayList<Integer> completionTime){
 		ArrayList<Integer> turnAroundTime = new ArrayList<>();
@@ -29,10 +30,10 @@ public class JobScheduling {
 		}
 		return turnAroundTime;
 	}
-	
+
+/*	Calculating the waiting time and Storing it */
 	private static ArrayList<Integer> calculateWaitingTime(ArrayList<ArrayList<Integer>> jobSchedule, int process,
 			ArrayList<Integer> turnAroundTime){
-		/*		Calculating the waiting time and Storing it */	
 		ArrayList<Integer> waitingTime = new ArrayList<>();
 		for(int i = 0; i < process; i++) {
 			waitingTime.add(turnAroundTime.get(i) - jobSchedule.get(i).get(1));
